@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clicknovation Technologies - Digital Innovation Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #020B18 0%, #011C40 100%);
+      color: #FFFFFF;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 60%;
+      background: linear-gradient(to bottom, #00BFFF, #1E90FF);
+      box-shadow: 0 0 20px #00BFFF;
+      opacity: 0.8;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0D1F35;
+      border: 1px solid #1E90FF;
+      border-radius: 50px;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      color: #A0B4CC;
+      width: fit-content;
+      animation: pulse 2s infinite;
+    }
+
+    .badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #00FF00;
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .heading {
+      font-size: 3.25rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+    }
+
+    .heading .highlight {
+      background: linear-gradient(135deg, #00BFFF, #1E90FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subheading {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #A0B4CC;
+      max-width: 600px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #0D1F35;
+      border: 1px solid #0A66C2;
+      border-radius: 50px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+      color: #FFFFFF;
+      transition: all 0.3s ease;
+    }
+
+    .stat-badge:hover {
+      border-color: #00BFFF;
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0A66C2, #00BFFF);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(10, 102, 194, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 191, 255, 0.4);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #FFFFFF;
+      border: 2px solid #FFFFFF;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #0A66C2;
+      border-color: #0A66C2;
+    }
+
+    .right-column {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .canvas-container {
+      width: 100%;
+      max-width: 500px;
+      height: 500px;
+      position: relative;
+      border-radius: 2rem;
+      overflow: hidden;
+    }
+
+    .canvas-container::before {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle, rgba(30, 144, 255, 0.2), transparent 70%);
+      border-radius: 2rem;
+      z-index: -1;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: 2rem;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: float 20s linear infinite;
+    }
+
+    .particle:nth-child(odd) {
+      background: rgba(0, 191, 255, 0.4);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+    }
+
+    .grid-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .light-streak {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(-45deg) translateX(50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .heading {
+        font-size: 2rem;
+      }
+
+      .subheading {
+        font-size: 0.9rem;
+      }
+
+      .stats {
+        justify-content: center;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .right-column {
+        order: -1;
+      }
+
+      .canvas-container {
+        max-width: 300px;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="light-streak"></div>
+  <div class="particles" id="particles"></div>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="left-column">
+        <div class="badge">
+          Ready to Work With You
+        </div>
+
+        <h1 class="heading">
+          Transform your ideas into <span class="highlight">digital success</span> with us!
+        </h1>
+
+        <p class="subheading">
+          At Clicknovation Technologies, we build secure, scalable, and high-performance digital solutions that empower businesses to innovate, grow, and succeed in today's digital world.
+        </p>
+
+        <div class="stats">
+          <div class="stat-badge">
+            🔒 Secure
+          </div>
+          <div class="stat-badge">
+            ⚡ Scalable
+          </div>
+          <div class="stat-badge">
+            🚀 High Performance
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button class="btn-primary">Get Started</button>
+          <button class="btn-secondary">View Our Work</button>
+        </div>
+      </div>
+
+      <div class="right-column">
+        <div class="canvas-container">
+          <canvas id="threejs-canvas"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Create particles
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 70; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.width = particle.style.height = (Math.random() * 3 + 1) + 'px';
+      particle.style.animationDelay = Math.random() * 20 + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 20) + 's';
+      particlesContainer.appendChild(particle);
+    }
+
+    // Three.js setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threejs-canvas'), alpha: true });
+    renderer.setSize(500, 500);
+    renderer.setPixelRatio(window.devicePixelRatio);
+
+    // TorusKnot geometry
+    const geometry = new THREE.TorusKnotGeometry(10, 3, 300, 20, 2, 3);
+    const material = new THREE.MeshPhysicalMaterial({
+      color: 0x1A4A8A,
+      transmission: 0.9,
+      roughness: 0.05,
+      metalness: 0.2,
+      transparent: true,
+      opacity: 0.85,
+      side: THREE.DoubleSide
+    });
+
+    const torusKnot = new THREE.Mesh(geometry, material);
+    scene.add(torusKnot);
+
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0x0D2B6E, 1.5);
+    scene.add(ambientLight);
+
+    const pointLight1 = new THREE.PointLight(0x00BFFF, 5);
+    pointLight1.position.set(15, 10, 10);
+    scene.add(pointLight1);
+
+    const pointLight2 = new THREE.PointLight(0x0A66C2, 3);
+    pointLight2.position.set(-15, -10, -10);
+    scene.add(pointLight2);
+
+    camera.position.z = 30;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+      torusKnot.rotation.y += 0.004;
+      torusKnot.rotation.x += 0.001;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+      const canvas = document.getElementById('threejs-canvas');
+      const container = canvas.parentElement;
+      const size = Math.min(container.clientWidth, container.clientHeight);
+      renderer.setSize(size, size);
+      camera.aspect = 1;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+</body>
+</html>
