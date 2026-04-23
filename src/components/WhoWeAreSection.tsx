@@ -15,93 +15,137 @@ export default function WhoWeAreSection() {
       ></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-left mb-20"
-        >
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-full shadow-lg mb-8 text-sm uppercase tracking-wider">
-            Who We Are
-          </div>
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           
-          <div className="flex flex-col leading-[1.1] sm:leading-[1.1] tracking-tight mb-6 mt-2">
-            {/* Line 1 */}
-            <span className="text-5xl sm:text-7xl lg:text-8xl font-sans font-extrabold text-white">
-              Empowering
-            </span>
-            
-            {/* Line 2 */}
-            <div className="text-5xl sm:text-7xl lg:text-8xl font-sans font-extrabold mt-1 sm:mt-2">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-400 text-transparent bg-clip-text drop-shadow-sm">Future</span>
-              <span className="text-white ml-3 sm:ml-5">with</span>
-            </div>
-            
-            {/* Line 3 with Accent Cursor */}
-            <div className="flex items-center text-4xl sm:text-6xl lg:text-7xl font-mono text-gray-200 mt-2 sm:mt-4">
-              Innovation
-              <motion.span 
-                animate={{ opacity: [1, 0, 1] }} 
-                transition={{ repeat: Infinity, duration: 1, ease: "linear", times: [0, 0.5, 1] }}
-                className="ml-2 sm:ml-4 inline-block w-[4px] sm:w-[6px] h-[40px] sm:h-[60px] lg:h-[70px] bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.8)]"
-              />
-            </div>
-          </div>
-          
-
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* LEFT COLUMN: All Information */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="flex flex-col justify-center"
+            className="flex flex-col space-y-8"
           >
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Clicknovation Technologies helps businesses succeed in today’s digital world with simple, smart, and effective technology solutions. We assist organizations in improving their systems, boosting performance, and adopting modern, reliable, and scalable solutions that are easy to manage and support long-term growth and success.
-            </p>
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 text-blue-400 font-bold rounded-full border border-blue-500/20 mb-6 text-xs uppercase tracking-[0.2em]">
+                Who We Are
+              </div>
+              
+              <div className="flex flex-col leading-none tracking-tighter mb-6">
+                <span className="text-5xl sm:text-7xl lg:text-8xl font-sans font-extrabold text-white">
+                  Empowering
+                </span>
+                <div className="text-5xl sm:text-7xl lg:text-8xl font-sans font-extrabold -mt-1">
+                  <span className="bg-gradient-to-r from-blue-600 to-cyan-400 text-transparent bg-clip-text drop-shadow-sm pb-1">Future</span>
+                  <span className="text-white ml-3 sm:ml-4 tracking-tighter">with</span>
+                </div>
+                <div className="flex items-center text-4xl sm:text-6xl lg:text-7xl font-mono text-gray-200 mt-1">
+                  Innovation
+                  <motion.span 
+                    animate={{ opacity: [1, 0, 1] }} 
+                    transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                    className="ml-2 sm:ml-4 inline-block w-[3px] h-[35px] sm:h-[50px] lg:h-[60px] bg-blue-600 shadow-[0_0_8px_rgba(37,99,235,0.8)]"
+                  />
+                </div>
+              </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 mt-2">
-              <div className="bg-slate-800/60 border border-slate-700/50 p-5 rounded-2xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-lg transition-transform hover:-translate-y-1">
-                <span className="text-3xl sm:text-4xl font-extrabold text-blue-400 mb-2">5+</span>
-                <span className="text-sm font-medium text-slate-300 leading-tight">Years of<br/>Innovation</span>
+              <p className="text-lg text-slate-300 leading-relaxed max-w-xl">
+                Clicknovation Technologies helps businesses succeed in today’s digital world with simple, smart, and effective technology solutions. We assist organizations in improving their systems, boosting performance, and adopting modern, reliable, and scalable solutions that are easy to manage and support long-term growth and success.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-3 gap-4 max-w-md">
+              <div className="bg-slate-800/40 border border-slate-700/30 p-4 rounded-xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-xl">
+                <span className="text-2xl font-black text-blue-400">5+</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Innovation</span>
               </div>
-              <div className="bg-slate-800/60 border border-slate-700/50 p-5 rounded-2xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-lg transition-transform hover:-translate-y-1">
-                <span className="text-3xl sm:text-4xl font-extrabold text-cyan-400 mb-2">200+</span>
-                <span className="text-sm font-medium text-slate-300 leading-tight">Successful<br/>Projects</span>
+              <div className="bg-slate-800/40 border border-slate-700/30 p-4 rounded-xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-xl">
+                <span className="text-2xl font-black text-cyan-400">200+</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Projects</span>
               </div>
-              <div className="bg-slate-800/60 border border-slate-700/50 p-5 rounded-2xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-lg transition-transform hover:-translate-y-1 col-span-2 sm:col-span-1">
-                <span className="text-3xl sm:text-4xl font-extrabold text-blue-500 mb-2">50+</span>
-                <span className="text-sm font-medium text-slate-300 leading-tight">Happy<br/>Clients</span>
+              <div className="bg-slate-800/40 border border-slate-700/30 p-4 rounded-xl flex flex-col items-center justify-center text-center backdrop-blur-sm shadow-xl">
+                <span className="text-2xl font-black text-blue-500">50+</span>
+                <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Clients</span>
               </div>
             </div>
           </motion.div>
 
+          {/* RIGHT COLUMN: Animation Structure */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="bg-slate-800 p-8 rounded-lg shadow-lg border border-slate-700"
+            className="hidden lg:flex items-center justify-center relative min-h-[500px]"
           >
-            <h3 className="text-2xl font-semibold text-white mb-4">Our Core Philosophy:</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center text-slate-300">
-                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                Innovation with purpose
-              </li>
-              <li className="flex items-center text-slate-300">
-                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                Technology with impact
-              </li>
-              <li className="flex items-center text-slate-300">
-                <span className="w-2 h-2 bg-orange-500 rounded-full mr-3"></span>
-                Solutions with scalability
-              </li>
-            </ul>
+             {/* Abstract Pulse Animation */}
+             <div className="absolute inset-0 bg-blue-600/5 rounded-full blur-[100px] animate-pulse" />
+             
+             <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center">
+                {/* Expanding Energy Waves */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      scale: [1, 2],
+                      opacity: [0.2, 0]
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: i * 1.3,
+                      ease: "easeOut"
+                    }}
+                    className="absolute inset-0 border border-blue-500/20 rounded-full"
+                  />
+                ))}
+
+                {/* Central Core Sphere */}
+                <div className="relative z-10 w-48 h-48 bg-slate-900 border border-white/10 rounded-full flex flex-col items-center justify-center shadow-[0_0_50px_rgba(59,130,246,0.2)] group overflow-hidden">
+                   <motion.div
+                     animate={{ 
+                       rotate: 360,
+                       scale: [1, 1.1, 1]
+                     }}
+                     transition={{
+                       rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                       scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                     }}
+                     className="absolute inset-2 border-2 border-dashed border-cyan-400/20 rounded-full"
+                   />
+                   <div className="relative z-10 flex flex-col items-center">
+                      <div className="w-12 h-12 bg-blue-600/20 rounded-xl flex items-center justify-center mb-4 border border-blue-500/30">
+                         <svg className="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                         </svg>
+                      </div>
+                      <span className="text-xs font-black tracking-[0.4em] text-white uppercase">Growth</span>
+                   </div>
+                </div>
+
+                {/* Floating Value Badges */}
+                {[
+                  { label: "SIMPLE", pos: "-top-4 left-1/2 -translate-x-1/2", color: "blue" },
+                  { label: "SMART", pos: "bottom-1/4 -right-8", color: "cyan" },
+                  { label: "EFFECTIVE", pos: "bottom-1/4 -left-8", color: "blue" }
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    animate={{ 
+                      y: [0, -10, 0],
+                      scale: [1, 1.05, 1]
+                    }}
+                    transition={{
+                      duration: 3 + i,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: i * 0.5
+                    }}
+                    className={`absolute p-4 sm:p-5 bg-slate-950/90 border border-white/10 backdrop-blur-xl rounded-2xl flex items-center justify-center shadow-2xl z-20 ${item.pos}`}
+                  >
+                     <span className={`text-[10px] font-black tracking-[0.3em] text-${item.color}-400 uppercase`}>{item.label}</span>
+                  </motion.div>
+                ))}
+             </div>
           </motion.div>
         </div>
       </div>
