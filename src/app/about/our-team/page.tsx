@@ -15,7 +15,6 @@ import {
   RocketLaunchIcon,
   CheckCircleIcon
 } from '@heroicons/react/24/outline';
-import Footer from '@/components/Footer';
 
 const expertiseItems = [
   { name: 'Web Development', icon: GlobeAltIcon },
@@ -315,6 +314,9 @@ export default function OurTeam() {
                   className="bg-slate-800/40 border border-slate-700/50 p-6 rounded-2xl hover:bg-slate-800/80 hover:border-blue-500/30 transition-all flex flex-col"
                 >
                   <div className="flex items-center mb-4">
+                    <span className="text-4xl font-extrabold text-white/5 mr-4 leading-none select-none absolute right-4 top-4">
+                      {(index + 1).toString().padStart(2, '0')}
+                    </span>
                     <CheckCircleIcon className="w-6 h-6 text-cyan-400 mr-3 flex-shrink-0" />
                     <h3 className="text-lg font-bold text-gray-100">{diff.title}</h3>
                   </div>
@@ -327,7 +329,6 @@ export default function OurTeam() {
           </div>
         </section>
       </div>
-      <Footer />
     </div>
   );
 }

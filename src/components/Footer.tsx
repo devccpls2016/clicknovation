@@ -26,18 +26,12 @@ export default function Footer() {
             </p>
             <div className="space-y-2">
               <motion.div 
-                className="flex items-start text-white/80 hover:text-white transition-colors cursor-default"
+                className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <MapPinIcon className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
-                <address className="not-italic text-sm leading-relaxed">
-                  Clicknovation Technologies<br />
-                  MB Patel College Road,<br />
-                  Near Durga Temple,<br />
-                  Sakoli, Maharashtra – 441802,<br />
-                  India
-                </address>
+                <MapPinIcon className="w-5 h-5 mr-2" />
+                <span>Your Location, City, Country</span>
               </motion.div>
               <motion.div 
                 className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
@@ -45,7 +39,7 @@ export default function Footer() {
                 transition={{ duration: 0.2 }}
               >
                 <PhoneIcon className="w-5 h-5 mr-2" />
-                <span>8055556644</span>
+                <span>+1 (555) 123-4567</span>
               </motion.div>
               <motion.div 
                 className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
@@ -53,7 +47,7 @@ export default function Footer() {
                 transition={{ duration: 0.2 }}
               >
                 <EnvelopeIcon className="w-5 h-5 mr-2" />
-                <span>dev.ccpls@gmail.com</span>
+                <span>info@clicknovation.com</span>
               </motion.div>
             </div>
           </motion.div>
