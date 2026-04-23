@@ -24,30 +24,34 @@ export default function Footer() {
             <p className="text-blue-100 mb-6 leading-relaxed">
               Empowering businesses with smart digital innovation. We design, build, and scale powerful digital solutions for the modern era.
             </p>
-            <div className="space-y-2">
+            <div className="space-y-4">
               <motion.div 
-                className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
+                className="flex items-start text-white/80 hover:text-white transition-colors cursor-default"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <MapPinIcon className="w-5 h-5 mr-2" />
-                <span>Your Location, City, Country</span>
+                <MapPinIcon className="w-5 h-5 mr-3 mt-1 flex-shrink-0" />
+                <span className="text-sm leading-relaxed">
+                  Clicknovation Technologies,<br />
+                  MB Patel College Road, Near Durga Temple,<br />
+                  Sakoli, Maharashtra – 441802, India
+                </span>
               </motion.div>
               <motion.div 
                 className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <PhoneIcon className="w-5 h-5 mr-2" />
-                <span>+1 (555) 123-4567</span>
+                <PhoneIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="tel:8055556644" className="hover:text-blue-400 transition-colors">8055556644</a>
               </motion.div>
               <motion.div 
                 className="flex items-center text-white/80 hover:text-white transition-colors cursor-default"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
-                <EnvelopeIcon className="w-5 h-5 mr-2" />
-                <span>info@clicknovation.com</span>
+                <EnvelopeIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="mailto:dev.ccpls@gmail.com" className="hover:text-blue-400 transition-colors">dev.ccpls@gmail.com</a>
               </motion.div>
             </div>
           </motion.div>
