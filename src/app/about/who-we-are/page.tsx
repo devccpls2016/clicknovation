@@ -52,15 +52,76 @@ export default function WhoWeAre() {
 
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUpVariant}
-              className="relative p-2 rounded-[2rem] border border-white/10 bg-slate-900/50 backdrop-blur-sm shadow-2xl h-full flex items-center justify-center overflow-hidden group"
+              className="relative aspect-square flex items-center justify-center overflow-hidden"
             >
-              {/* Image glow effect behind */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-[2rem] blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-              <img 
-                src="/modern_it_tech.png" 
-                alt="Modern Technology" 
-                className="relative w-full h-[400px] object-cover rounded-[1.5rem] ring-1 ring-white/10 transition-transform duration-700 group-hover:scale-105"
-              />
+              {/* Abstract Animation: Innovation & Ideas */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-cyan-400/5 rounded-full blur-3xl animate-pulse" />
+              
+              <div className="relative w-full max-w-[450px] aspect-square">
+                {/* Rotating Rings for Technological Core */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 border-2 border-dashed border-blue-500/20 rounded-full"
+                />
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-10 border border-cyan-400/30 rounded-full"
+                />
+
+                {/* Central Floating "Idea" Pulse */}
+                <div className="absolute inset-[30%] bg-slate-900/40 backdrop-blur-3xl border border-white/10 rounded-[3rem] shadow-2xl flex flex-col items-center justify-center p-6 group">
+                   <motion.div
+                     animate={{ 
+                       scale: [1, 1.15, 1],
+                       opacity: [0.7, 1, 0.7]
+                     }}
+                     transition={{ duration: 4, repeat: Infinity }}
+                     className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-4 border border-blue-400/40"
+                   >
+                     <svg className="w-8 h-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                     </svg>
+                   </motion.div>
+                   <span className="text-[10px] font-black tracking-[0.4em] text-blue-400 uppercase">Innovation</span>
+                   <div className="h-px w-8 bg-blue-500/30 my-2" />
+                   <span className="text-[10px] font-black tracking-[0.4em] text-cyan-400 uppercase">Creative</span>
+                </div>
+
+                {/* Orbiting Tech Tokens */}
+                {[
+                  { icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4', label: 'CODE' },
+                  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'SPEED' },
+                  { icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', label: 'PURE' },
+                  { icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', label: 'REAL' }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={item.label}
+                    animate={{
+                      y: [0, -20, 0],
+                      x: [0, (idx % 2 === 0 ? 10 : -10), 0]
+                    }}
+                    transition={{
+                      duration: 5 + idx,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: idx * 0.8
+                    }}
+                    className={`absolute p-4 bg-slate-900/80 border border-white/10 backdrop-blur-md rounded-2xl flex flex-col items-center gap-2 shadow-xl z-20
+                      ${idx === 0 ? '-top-2 -right-2' : ''}
+                      ${idx === 1 ? '-bottom-2 -left-2' : ''}
+                      ${idx === 2 ? 'top-1/2 -right-8 -translate-y-1/2' : ''}
+                      ${idx === 3 ? 'bottom-1/2 -left-8 translate-y-1/2' : ''}
+                    `}
+                  >
+                     <svg className="w-5 h-5 text-blue-400 font-bold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                     </svg>
+                     <span className="text-[8px] font-bold tracking-widest text-white/40">{item.label}</span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>
@@ -300,25 +361,69 @@ export default function WhoWeAre() {
             </div>
           </motion.div>
 
-          {/* Vision Image Card */}
+          {/* Vision Image Animation */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative"
+            className="relative aspect-square flex items-center justify-center p-4"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 rounded-[2.5rem] blur-2xl transform translate-y-4"></div>
-            <div className="relative p-2 rounded-[2.5rem] bg-slate-800/40 border border-slate-700/50 backdrop-blur-sm group overflow-hidden">
-              <div className="relative rounded-[2rem] overflow-hidden">
-                <div className="absolute inset-0 bg-blue-600/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
-                <img 
-                  src="/vision_ecosystem.png" 
-                  alt="Future-Ready Digital Ecosystem" 
-                  className="w-full h-auto object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                />
-              </div>
-            </div>
+             {/* Abstract Connectivity Structure */}
+             <div className="absolute inset-0 bg-blue-500/5 rounded-full blur-[100px]" />
+             
+             <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center">
+                {/* Expanding Pulse Rings */}
+                {[...Array(3)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    animate={{
+                      scale: [1, 1.5],
+                      opacity: [0.3, 0]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: i * 1,
+                      ease: "easeOut"
+                    }}
+                    className="absolute inset-0 border border-blue-400/30 rounded-full"
+                  />
+                ))}
+
+                {/* Central Ecosystem Node */}
+                <div className="relative z-10 w-48 h-48 bg-slate-900 border border-white/10 rounded-full flex flex-col items-center justify-center shadow-2xl group overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 to-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                   <motion.div 
+                     animate={{ rotate: 360 }}
+                     transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                     className="w-16 h-16 border-2 border-dashed border-cyan-400/40 rounded-full flex items-center justify-center mb-4"
+                   >
+                      <div className="w-3 h-3 bg-cyan-400 rounded-full" />
+                   </motion.div>
+                   <span className="text-xs font-bold text-white uppercase tracking-[0.2em]">Ecosystem</span>
+                </div>
+
+                {/* Satellite Connectivity Nodes */}
+                {[...Array(6)].map((_, i) => (
+                   <motion.div 
+                     key={i}
+                     animate={{
+                       rotate: 360
+                     }}
+                     transition={{
+                       duration: 20 + i * 5,
+                       repeat: Infinity,
+                       ease: "linear"
+                     }}
+                     className="absolute inset-0 flex items-start justify-center"
+                   >
+                      <div className="w-10 h-10 -mt-5 bg-slate-800 border border-blue-400/30 rounded-xl flex items-center justify-center shadow-lg">
+                         <div className="w-1 h-1 bg-blue-400 rounded-full animate-ping" />
+                      </div>
+                   </motion.div>
+                ))}
+             </div>
           </motion.div>
 
         </div>
@@ -331,25 +436,58 @@ export default function WhoWeAre() {
 
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* Differentiator Image Card (Left side on Desktop) */}
+          {/* Differentiator Image Animation (Left side on Desktop) */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative order-last lg:order-first pt-10 lg:pt-0"
+            className="relative order-last lg:order-first aspect-square flex items-center justify-center p-4"
           >
-            <div className="absolute inset-0 bg-gradient-to-bl from-cyan-400/20 to-blue-500/20 rounded-[2.5rem] blur-2xl transform translate-y-4"></div>
-            <div className="relative p-2 rounded-[2.5rem] bg-slate-800/40 border border-slate-700/50 backdrop-blur-sm group overflow-hidden">
-              <div className="relative rounded-[2rem] overflow-hidden">
-                <div className="absolute inset-0 bg-cyan-600/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 z-10"></div>
-                <img 
-                  src="/differentiator_quality.png" 
-                  alt="Quality and technical commitment" 
-                  className="w-full h-auto object-cover aspect-[4/3] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                />
-              </div>
-            </div>
+             <div className="absolute inset-0 bg-cyan-500/5 rounded-full blur-[100px]" />
+             
+             <div className="relative w-full max-w-[400px] aspect-square flex items-center justify-center">
+                {/* Precision Grid Background */}
+                <div className="absolute inset-0 grid grid-cols-4 grid-rows-4 gap-4 opacity-20">
+                   {[...Array(16)].map((_, i) => (
+                      <div key={i} className="border border-cyan-400/30 rounded-lg" />
+                   ))}
+                </div>
+
+                {/* Central Commitment Shield */}
+                <div className="relative z-10 w-56 h-56 bg-slate-900 border border-white/20 rounded-[3rem] flex flex-col items-center justify-center shadow-2xl group overflow-hidden">
+                   <div className="absolute inset-0 bg-gradient-to-bl from-cyan-600/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                   <motion.div
+                     initial={{ rotateY: 0 }}
+                     animate={{ rotateY: 360 }}
+                     transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                     className="w-20 h-20 bg-cyan-600/20 rounded-3xl flex items-center justify-center mb-6 border border-cyan-400/30"
+                   >
+                      <svg className="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                   </motion.div>
+                   <span className="text-sm font-black text-white uppercase tracking-[0.3em]">Quality</span>
+                   <div className="h-px w-10 bg-cyan-400/40 my-3" />
+                   <span className="text-sm font-black text-blue-400 uppercase tracking-[0.3em]">Commitment</span>
+                </div>
+
+                {/* Floating Satisfaction Metrics */}
+                {[
+                  { value: '100%', label: 'QUALITY', pos: '-top-4 -right-4' },
+                  { value: '24/7', label: 'SUPPORT', pos: '-bottom-4 -left-4' }
+                ].map((item, i) => (
+                  <motion.div
+                    key={item.label}
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 3 + i, repeat: Infinity, ease: "easeInOut" }}
+                    className={`absolute p-6 bg-slate-900/90 border border-white/10 backdrop-blur-xl rounded-2xl flex flex-col items-center z-20 ${item.pos}`}
+                  >
+                     <span className="text-2xl font-black text-cyan-400 mb-1">{item.value}</span>
+                     <span className="text-[10px] font-bold text-white/40 tracking-widest">{item.label}</span>
+                  </motion.div>
+                ))}
+             </div>
           </motion.div>
 
           {/* Differentiator Content */}
