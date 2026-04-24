@@ -32,11 +32,11 @@ export default function FinalCTASection() {
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest mb-10 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
               <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-              Let's Scale Together
+              Let&apos;s Scale Together
             </div>
 
             <h2 className="text-4xl sm:text-6xl font-sans font-extrabold text-white mb-8 leading-[1.1] tracking-tight">
-              Let's Build the <br />
+              Let&apos;s Build the <br />
               <span className="bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]">
                 Digital Future
               </span> Together.

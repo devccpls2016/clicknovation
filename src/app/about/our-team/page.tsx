@@ -19,27 +19,13 @@ import {
   LightBulbIcon,
   ShieldCheckIcon,
   ArrowPathIcon,
-  ArrowRightIcon,
-  ChatBubbleLeftRightIcon,
+  ArrowsPointingOutIcon,
   BoltIcon,
-  ArrowsPointingOutIcon
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline';
 import Footer from '@/components/Footer';
-import Link from 'next/link';
 
 export default function OurTeam() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-white overflow-hidden relative">
@@ -201,7 +187,7 @@ export default function OurTeam() {
                    <motion.div
                      key={i}
                      animate={{
-                       height: [20, 60 + Math.random() * 60, 20],
+                       height: [20, 60 + (i * 10) % 60, 20],
                        backgroundColor: i % 2 === 0 ? '#3b82f6' : '#22d3ee'
                      }}
                      transition={{

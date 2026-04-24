@@ -94,7 +94,6 @@ const projects = [
   },
 ];
 
-const industries = ['All', 'BUSINESS', 'GOVERNMENT', 'EDUCATION', 'HEALTHCARE'];
 
 const stats = [
   { value: '50+', label: 'Projects Delivered' },

@@ -97,7 +97,7 @@ export default function Contact() {
               />
           </div>
           <h1 className="text-5xl sm:text-6xl font-extrabold text-white mb-6 leading-tight">
-            Let's build something <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Amazing</span>
+            Let&apos;s build something <span className="bg-gradient-to-r from-cyan-400 to-blue-500 text-transparent bg-clip-text">Amazing</span>
           </h1>
           <p className="text-xl text-slate-300 leading-relaxed">
             Whether you have a strategic question, need specific technological support, or want to transform your business—our experts are ready to assist you.

@@ -19,13 +19,6 @@ import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 export default function TrustCenter() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-white overflow-hidden relative">
@@ -242,7 +235,7 @@ export default function TrustCenter() {
                   desc: "Commitment to consistent delivery and services with absolute minimal downtime.",
                   icon: CheckBadgeIcon
                 }
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div key={item.title} className="p-10 rounded-[3rem] bg-slate-800/40 border border-slate-700/50 hover:border-blue-500/50 transition-all group">
                    <div className="w-14 h-14 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-6">
                       <item.icon className="w-8 h-8 text-cyan-400 group-hover:scale-110 transition-transform" />

@@ -42,7 +42,7 @@ export default function HeroSection() {
             </div>
 
             <p className="max-w-xl text-base text-blue-200 sm:text-lg leading-8">
-              At Clicknovation Technologies, we build secure, scalable, and high-performance digital solutions that empower businesses to innovate, grow, and succeed in today's digital world.
+              At Clicknovation Technologies, we build secure, scalable, and high-performance digital solutions that empower businesses to innovate, grow, and succeed in today&apos;s digital world.
             </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
