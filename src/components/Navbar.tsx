@@ -26,12 +26,12 @@ const menuItems = [
     icon: '⚙️',
     description: 'Our expertise',
     submenus: [
-      { name: 'Business Consultancy', href: '/services/business-consultancy', desc: 'Strategic guidance' },
       { name: 'Web & App Development', href: '/services/web-app-development', desc: 'Custom solutions' },
       { name: 'Network and Infrastructure', href: '/services/network-infrastructure', desc: 'Enterprise networks' },
       { name: 'Digital Marketing', href: '/services/digital-marketing', desc: 'Growth strategies' },
       { name: 'Cloud Services', href: '/services/cloud-services', desc: 'Scalable infrastructure' },
       { name: 'CCTV & Security', href: '/services/cctv-security', desc: 'Safety systems' },
+      { name: 'Business Consultancy', href: '/services/business-consultancy', desc: 'Strategic guidance' },
     ],
   },
   {
