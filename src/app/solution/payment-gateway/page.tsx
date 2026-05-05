@@ -428,7 +428,7 @@ export default function PaymentGatewayIntegration() {
                <div className="space-y-8 relative z-10">
                   <div className="flex gap-5 items-start">
                      <div className="w-14 h-14 shrink-0 rounded-2xl bg-blue-500/20 flex items-center justify-center text-2xl border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.2)]">🛠</div>
-                     <div><h4 className="text-white font-bold text-lg mb-1">Customized Workflow</h4><p className="text-slate-400 text-sm leading-relaxed">We don't just provide generic checkout pages; we build payment systems according to your exact business process.</p></div>
+                     <div><h4 className="text-white font-bold text-lg mb-1">Customized Workflow</h4><p className="text-slate-400 text-sm leading-relaxed">We don&apos;t just provide generic checkout pages; we build payment systems according to your exact business process.</p></div>
                   </div>
                   <div className="flex gap-5 items-start">
                      <div className="w-14 h-14 shrink-0 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-2xl border border-cyan-500/30 shadow-[0_0_15px_rgba(6,182,212,0.2)]">⚙</div>

@@ -261,7 +261,7 @@ export default function BusinessConsultancy() {
                 A logical framework for <span className="bg-gradient-to-r from-blue-400 to-cyan-300 text-transparent bg-clip-text">business improvement.</span>
               </h2>
               <p className="text-lg text-blue-100/70 leading-relaxed mb-10">
-                We don't guess. We follow a systematic, logic-driven approach to deconstruct your business challenges and architect a clear path to execution.
+                We don&apos;t guess. We follow a systematic, logic-driven approach to deconstruct your business challenges and architect a clear path to execution.
               </p>
               
               <div className="space-y-8">

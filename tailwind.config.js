@@ -52,8 +52,18 @@ module.exports = {
         'bounce-in': 'bounceIn 0.6s ease-out',
         'spin-slow': 'spin 12s linear infinite',
         'spin-reverse-slow': 'spin-reverse 15s linear infinite',
+        'gradient-x': 'gradient-x 15s ease infinite',
+        'shimmer': 'shimmer 2s infinite',
       },
       keyframes: {
+        'gradient-x': {
+          '0%, 100%': { 'background-position': '0% 50%' },
+          '50%': { 'background-position': '100% 50%' },
+        },
+        'shimmer': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
         'spin-reverse': {
           from: { transform: 'rotate(360deg)' },
           to: { transform: 'rotate(0deg)' },

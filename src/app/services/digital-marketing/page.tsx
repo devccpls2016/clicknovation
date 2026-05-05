@@ -42,7 +42,7 @@ export default function DigitalMarketing() {
               </div>
 
               <h2 className="text-2xl font-bold text-cyan-300/90 italic tracking-wide">
-                Marketing today is not about being everywhere. It's about reaching the right people at the right time.
+                Marketing today is not about being everywhere. It&apos;s about reaching the right people at the right time.
               </h2>
               
               <div className="space-y-4 text-blue-100/70 text-lg leading-relaxed max-w-2xl pt-4 border-l-2 border-cyan-500/30 pl-6">
@@ -85,7 +85,7 @@ export default function DigitalMarketing() {
                    { label: 'SEO', angle: 0, radius: '42.5%', color: 'bg-cyan-500', delay: 0 },
                    { label: 'ADS', angle: 120, radius: '42.5%', color: 'bg-blue-500', delay: -5 },
                    { label: 'SOCIAL', angle: 240, radius: '42.5%', color: 'bg-indigo-500', delay: -10 }
-                 ].map((orb, i) => (
+                 ].map((orb) => (
                     <motion.div
                       key={orb.label}
                       animate={{ rotate: 360 }}
@@ -106,17 +106,24 @@ export default function DigitalMarketing() {
                  ))}
 
                  {/* Floating floating particles */}
-                 {[...Array(6)].map((_, i) => (
-                   <motion.div
-                     key={i}
-                     animate={{ y: [0, -20, 0], opacity: [0, 1, 0] }}
-                     transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                     className="absolute w-1 h-1 bg-cyan-400 rounded-full"
-                     style={{
-                       left: `${Math.random() * 100}%`,
-                       top: `${Math.random() * 100}%`
-                     }}
-                   />
+                 {[
+                   { x: '20%', y: '30%', delay: 0 },
+                   { x: '70%', y: '10%', delay: 0.5 },
+                   { x: '10%', y: '80%', delay: 1 },
+                   { x: '90%', y: '40%', delay: 1.5 },
+                   { x: '40%', y: '90%', delay: 2 },
+                   { x: '80%', y: '70%', delay: 2.5 }
+                 ].map((particle, i) => (
+                    <motion.div
+                      key={i}
+                      animate={{ y: [0, -20, 0], opacity: [0, 1, 0] }}
+                      transition={{ duration: 3, repeat: Infinity, delay: particle.delay }}
+                      className="absolute w-1 h-1 bg-cyan-400 rounded-full"
+                      style={{
+                        left: particle.x,
+                        top: particle.y
+                      }}
+                    />
                  ))}
               </div>
             </motion.div>
@@ -135,7 +142,7 @@ export default function DigitalMarketing() {
                 The Challenge
               </div>
               <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-6">
-                The Problem Most Brands Face: <br/> <span className="text-blue-400">Where Efforts Don’t Turn Into Results</span>
+                The Problem Most Brands Face: <br/> <span className="text-blue-400">Where Efforts Don&apos;t Turn Into Results</span>
               </h2>
               <p className="text-lg text-blue-100/70 max-w-2xl mx-auto">
                 Many businesses invest time and money in marketing but still struggle to see real outcomes. Without the right strategy and direction, efforts often fail to deliver meaningful growth.

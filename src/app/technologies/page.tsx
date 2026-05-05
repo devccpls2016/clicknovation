@@ -113,16 +113,23 @@ export default function Technologies() {
                ))}
 
                {/* Floating Data Packets */}
-               {[...Array(6)].map((_, i) => (
+               {[
+                 { x: 50, y: -80, delay: 0 },
+                 { x: -70, y: 120, delay: 0.5 },
+                 { x: 130, y: 40, delay: 1 },
+                 { x: -110, y: -60, delay: 1.5 },
+                 { x: 90, y: 150, delay: 2 },
+                 { x: -40, y: -130, delay: 2.5 }
+               ].map((packet, i) => (
                   <motion.div
                     key={`packet-${i}`}
                     animate={{ 
                       scale: [0, 1, 0],
                       opacity: [0, 1, 0],
-                      x: [Math.random() * 200 - 100, Math.random() * 200 - 100],
-                      y: [Math.random() * 200 - 100, Math.random() * 200 - 100]
+                      x: [0, packet.x],
+                      y: [0, packet.y]
                     }}
-                    transition={{ duration: 3 + i, repeat: Infinity, delay: i * 0.7 }}
+                    transition={{ duration: 3 + i, repeat: Infinity, delay: packet.delay }}
                     className="absolute w-1.5 h-1.5 bg-cyan-400 rounded-full shadow-[0_0_10px_#22d3ee]"
                   />
                ))}
@@ -621,7 +628,7 @@ export default function Technologies() {
                 Technology Is How We <br /> Future-Proof Your Business.
               </h2>
               <p className="text-lg text-blue-100/80 max-w-2xl mx-auto mb-12">
-                Strong software needs strong engineering beneath the surface. Ensure your platform is prepared not just for today's users, but for tomorrow's growth.
+                Strong software needs strong engineering beneath the surface. Ensure your platform is prepared not just for today&apos;s users, but for tomorrow&apos;s growth.
               </p>
               <button className="px-10 py-4 bg-cyan-500 text-slate-900 font-bold rounded-full text-lg shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:bg-cyan-400 hover:scale-105 transition-all">
                 Start Your Tech Project

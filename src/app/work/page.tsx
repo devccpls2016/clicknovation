@@ -4,9 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   Rocket, 
-  Globe, 
-  Database, 
-  Layout, 
   Sparkles,
   ArrowRight,
   ChevronRight,
@@ -16,7 +13,6 @@ import {
   Stethoscope,
   ShoppingCart,
   Cpu,
-  Monitor,
   Smartphone,
   Share2,
   Network,
@@ -29,7 +25,7 @@ const fadeIn = {
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.8, ease: "easeOut" }
-};
+} as const;
 
 const BackgroundElements = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -242,30 +238,41 @@ export default function WorkPage() {
 
                 {/* Orbiting Domain Icons */}
                 {[
-                  { icon: Building2, label: "Gov", angle: 0, color: "blue" },
-                  { icon: GraduationCap, label: "Edu", angle: 72, color: "indigo" },
-                  { icon: Stethoscope, label: "Med", angle: 144, color: "blue" },
-                  { icon: ShoppingCart, label: "Shop", angle: 216, color: "indigo" },
-                  { icon: Network, label: "Infra", angle: 288, color: "blue" }
-                ].map((item, i) => (
-                  <motion.div
-                    key={i}
-                    animate={{ 
-                      x: [Math.cos((item.angle * Math.PI) / 180) * 200, Math.cos(((item.angle + 360) * Math.PI) / 180) * 200],
-                      y: [Math.sin((item.angle * Math.PI) / 180) * 200, Math.sin(((item.angle + 360) * Math.PI) / 180) * 200],
-                    }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group"
-                  >
-                    <motion.div 
-                      whileHover={{ scale: 1.2, rotate: 0 }}
-                      className={`w-20 h-20 bg-[#0a0a0a] border border-white/10 rounded-2xl flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl group-hover:border-${item.color}-500/50 transition-all`}
+                  { icon: Building2, label: "Gov", angle: 0, colorClass: "blue" },
+                  { icon: GraduationCap, label: "Edu", angle: 72, colorClass: "indigo" },
+                  { icon: Stethoscope, label: "Med", angle: 144, colorClass: "blue" },
+                  { icon: ShoppingCart, label: "Shop", angle: 216, colorClass: "indigo" },
+                  { icon: Network, label: "Infra", angle: 288, colorClass: "blue" }
+                ].map((item, i) => {
+                  const borderClasses = {
+                    blue: "group-hover:border-blue-500/50",
+                    indigo: "group-hover:border-indigo-500/50"
+                  };
+                  const textClasses = {
+                    blue: "text-blue-400",
+                    indigo: "text-indigo-400"
+                  };
+                  
+                  return (
+                    <motion.div
+                      key={i}
+                      animate={{ 
+                        x: [Math.cos((item.angle * Math.PI) / 180) * 200, Math.cos(((item.angle + 360) * Math.PI) / 180) * 200],
+                        y: [Math.sin((item.angle * Math.PI) / 180) * 200, Math.sin(((item.angle + 360) * Math.PI) / 180) * 200],
+                      }}
+                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 group"
                     >
-                      <item.icon className={`w-8 h-8 text-${item.color}-400 mb-1`} />
-                      <span className="text-[10px] font-bold text-gray-500 uppercase">{item.label}</span>
+                      <motion.div 
+                        whileHover={{ scale: 1.2, rotate: 0 }}
+                        className={`w-20 h-20 bg-[#0a0a0a] border border-white/10 rounded-2xl flex flex-col items-center justify-center shadow-2xl backdrop-blur-xl ${borderClasses[item.colorClass as keyof typeof borderClasses]} transition-all`}
+                      >
+                        <item.icon className={`w-8 h-8 ${textClasses[item.colorClass as keyof typeof textClasses]} mb-1`} />
+                        <span className="text-[10px] font-bold text-gray-500 uppercase">{item.label}</span>
+                      </motion.div>
                     </motion.div>
-                  </motion.div>
-                ))}
+                  );
+                })}
 
                 {/* Floating Data Streams */}
                 {[...Array(4)].map((_, i) => (
@@ -415,24 +422,6 @@ export default function WorkPage() {
       </section>
 
       <Footer />
-
-      <style jsx global>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 15s ease infinite;
-        }
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
     </div>
   );
 }

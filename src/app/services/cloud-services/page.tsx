@@ -92,7 +92,7 @@ export default function CloudServices() {
                    { label: 'STORAGE', icon: 'M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4', delay: 0 },
                    { label: 'COMPUTE', icon: 'M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z', delay: 1.5 },
                    { label: 'NETWORK', icon: 'M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1', delay: 3 }
-                 ].map((node, i) => (
+                 ].map((node) => (
                     <motion.div
                       key={node.label}
                       animate={{ rotate: 360 }}
@@ -241,7 +241,7 @@ export default function CloudServices() {
              >
                 <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[60px]" />
                 <h3 className="text-2xl font-bold text-white mb-3">CRM & ERP Systems Hosting</h3>
-                <p className="text-blue-100/70 text-lg max-w-lg">Host your company's heavy management systems on cloud servers to ensure they run fast and are accessible to multiple branch offices simultaneously.</p>
+                <p className="text-blue-100/70 text-lg max-w-lg">Host your company&apos;s heavy management systems on cloud servers to ensure they run fast and are accessible to multiple branch offices simultaneously.</p>
              </motion.div>
 
              {/* Card 2 */}

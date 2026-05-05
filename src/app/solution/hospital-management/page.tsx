@@ -316,7 +316,7 @@ export default function HospitalManagement() {
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Complete Management <span className="text-indigo-400">Control.</span></h2>
               <p className="text-indigo-100/60 max-w-lg">
-                Hospital owners shouldn't wait for manual reports. Get exact control over every rupee, every employee, and every department instantly.
+                Hospital owners shouldn&apos;t wait for manual reports. Get exact control over every rupee, every employee, and every department instantly.
               </p>
             </motion.div>
           </div>

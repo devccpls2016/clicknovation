@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { 
   Code2, 
   Smartphone, 
@@ -15,7 +15,6 @@ import {
   Briefcase,
   GraduationCap,
   Lightbulb,
-  Rocket,
   Sparkles,
   Zap,
   Layers
@@ -119,7 +118,7 @@ export default function CareersPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-              At Clicknovation Technologies, we don't just offer jobs. We provide a launchpad for innovators who want to redefine what's possible in the tech world.
+              At Clicknovation Technologies, we don&apos;t just offer jobs. We provide a launchpad for innovators who want to redefine what&apos;s possible in the tech world.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -311,12 +310,12 @@ export default function CareersPage() {
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black mb-6">How We <span className="text-blue-500">Hire</span></h2>
                 <p className="text-gray-400 text-lg leading-relaxed">
-                  We've streamlined our recruitment process to be as efficient and transparent as possible. We value your time and aim to provide a professional experience from day one.
+                  We&apos;ve streamlined our recruitment process to be as efficient and transparent as possible. We value your time and aim to provide a professional experience from day one.
                 </p>
                 
                 <div className="mt-12 p-6 rounded-3xl bg-blue-600/5 border border-blue-500/10 hidden lg:block">
                   <p className="text-sm text-blue-400 font-bold mb-2">PRO TIP</p>
-                  <p className="text-sm text-gray-400">Be yourself, showcase your passion for technology, and don't be afraid to ask us questions about our culture and projects.</p>
+                  <p className="text-sm text-gray-400">Be yourself, showcase your passion for technology, and don&apos;t be afraid to ask us questions about our culture and projects.</p>
                 </div>
               </motion.div>
 
@@ -385,7 +384,7 @@ export default function CareersPage() {
                   <span key={i} className="px-6 py-3 rounded-2xl bg-white/5 border border-white/10 text-gray-300 font-medium">{tag}</span>
                 ))}
               </div>
-              <p className="text-blue-400 font-bold text-lg">"We believe fresh talent becomes stronger when given real responsibility."</p>
+              <p className="text-blue-400 font-bold text-lg">&quot;We believe fresh talent becomes stronger when given real responsibility.&quot;</p>
             </motion.div>
           </motion.div>
         </div>
@@ -430,7 +429,7 @@ export default function CareersPage() {
               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-[40px] blur opacity-20"></div>
               <div className="bg-[#0a0a0a] border border-white/10 p-8 md:p-12 rounded-[40px] relative z-10 shadow-2xl">
                 <h3 className="text-3xl font-bold mb-2">Apply Now</h3>
-                <p className="text-gray-400 mb-10">Fill the form below and we'll be in touch.</p>
+                <p className="text-gray-400 mb-10">Fill the form below and we&apos;ll be in touch.</p>
                 <CareerForm />
               </div>
             </motion.div>
