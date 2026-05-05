@@ -50,8 +50,14 @@ module.exports = {
         'fade-in': 'fadeIn 1s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-in': 'bounceIn 0.6s ease-out',
+        'spin-slow': 'spin 12s linear infinite',
+        'spin-reverse-slow': 'spin-reverse 15s linear infinite',
       },
       keyframes: {
+        'spin-reverse': {
+          from: { transform: 'rotate(360deg)' },
+          to: { transform: 'rotate(0deg)' },
+        },
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },

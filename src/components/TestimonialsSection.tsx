@@ -84,10 +84,10 @@ export default function TestimonialsSection() {
   const rest = testimonials.filter((t) => !t.featured);
 
   return (
-    <section className="relative overflow-hidden bg-slate-50 text-slate-900 py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-200">
+    <section className="relative overflow-hidden bg-[#0a0f1c] text-white py-32 px-4 sm:px-6 lg:px-8 border-t border-slate-800/50">
       {/* Ambient light blobs */}
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-100/60 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-100/50 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto z-10">
 
@@ -99,20 +99,20 @@ export default function TestimonialsSection() {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-full shadow-lg mb-8 text-sm uppercase tracking-wider">
+          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-full shadow-lg mb-8 text-sm uppercase tracking-wider backdrop-blur-md">
             Client Testimonials
           </div>
           <div className="flex flex-col leading-[1.1] tracking-tight items-center mb-8">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900">
+            <span className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white">
               Trusted by Businesses.
             </span>
             <div className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mt-2">
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text pb-2 inline-block">
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-400 text-transparent bg-clip-text pb-2 inline-block drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                 Proven by Results.
               </span>
             </div>
           </div>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Real feedback from real businesses whose operations, growth, and technology we&apos;ve transformed.
           </p>
         </motion.div>
@@ -123,14 +123,14 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-slate-200 rounded-2xl overflow-hidden mb-16 shadow-sm"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden mb-16 shadow-2xl border border-white/5"
         >
           {stats.map((stat) => (
             <div
               key={stat.label}
-              className="bg-white flex flex-col items-center justify-center py-8 px-4 group hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-500 transition-all duration-500"
+              className="bg-[#0f172a] flex flex-col items-center justify-center py-8 px-4 group hover:bg-gradient-to-br hover:from-blue-600 hover:to-cyan-500 transition-all duration-500"
             >
-              <p className="text-3xl font-extrabold text-slate-900 group-hover:text-white transition-colors duration-300 mb-1">
+              <p className="text-3xl font-extrabold text-white group-hover:text-white transition-colors duration-300 mb-1">
                 {stat.value}
               </p>
               <p className="text-xs text-slate-500 uppercase tracking-widest font-semibold group-hover:text-white/70 transition-colors duration-300">
@@ -149,38 +149,38 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="lg:col-span-3 relative group bg-gradient-to-br from-blue-600 to-cyan-500 rounded-[2rem] p-10 sm:p-12 overflow-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(37,99,235,0.25)] hover:shadow-[0_28px_80px_rgba(37,99,235,0.4)] hover:-translate-y-1.5 transition-all duration-500"
+            className="lg:col-span-3 relative group bg-gradient-to-br from-blue-600/20 to-cyan-500/10 rounded-[2rem] p-10 sm:p-12 overflow-hidden flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-white/10 hover:border-cyan-500/30 hover:-translate-y-1.5 transition-all duration-500"
           >
             {/* Decorative quote mark */}
-            <div className="absolute top-6 right-8 opacity-10">
+            <div className="absolute top-6 right-8 opacity-5">
               <ChatBubbleLeftRightIcon className="w-28 h-28 text-white" />
             </div>
             {/* Glow blob */}
-            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-white/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10">
               <div className="flex items-center gap-2 mb-8">
                 <StarRating count={featured.rating} />
-                <span className="text-white/60 text-xs font-semibold uppercase tracking-widest ml-1">
+                <span className="text-blue-400 text-xs font-semibold uppercase tracking-widest ml-1">
                   Verified Review
                 </span>
               </div>
 
               {/* Large open-quote glyph */}
-              <span className="block text-7xl leading-none font-serif text-white/20 -mb-4 -ml-1 select-none">&ldquo;</span>
-              <p className="text-xl sm:text-2xl font-semibold text-white leading-relaxed mb-10">
+              <span className="block text-7xl leading-none font-serif text-blue-500/20 -mb-4 -ml-1 select-none">&ldquo;</span>
+              <p className="text-xl sm:text-2xl font-semibold text-white leading-relaxed mb-10 group-hover:text-cyan-50 transition-colors">
                 {featured.quote}
               </p>
             </div>
 
             {/* Author */}
-            <div className="relative z-10 flex items-center gap-4 pt-8 border-t border-white/20">
-              <div className={`w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-extrabold text-base border border-white/30 shrink-0`}>
+            <div className="relative z-10 flex items-center gap-4 pt-8 border-t border-white/10">
+              <div className={`w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-sm flex items-center justify-center text-white font-extrabold text-base border border-white/10 shrink-0`}>
                 {featured.initials}
               </div>
               <div>
                 <p className="text-white font-bold text-base leading-tight">{featured.author}</p>
-                <p className="text-white/70 text-sm font-medium">{featured.role} · {featured.company}</p>
+                <p className="text-slate-400 text-sm font-medium">{featured.role} · {featured.company}</p>
               </div>
             </div>
           </motion.div>
@@ -194,26 +194,26 @@ export default function TestimonialsSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.15 + i * 0.12 }}
                 viewport={{ once: true }}
-                className="group relative bg-white border border-slate-200 rounded-[1.75rem] p-8 overflow-hidden flex flex-col gap-5 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:border-blue-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(37,99,235,0.1)] transition-all duration-500"
+                className="group relative bg-white/[0.02] border border-white/[0.08] rounded-[1.75rem] p-8 overflow-hidden flex flex-col gap-5 shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:border-cyan-500/30 hover:-translate-y-1.5 transition-all duration-500"
               >
-                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-50 rounded-full blur-2xl pointer-events-none" />
+                <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10 flex items-center justify-between">
                   <StarRating count={t.rating} />
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Verified</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Verified</span>
                 </div>
 
-                <p className="relative z-10 text-slate-700 leading-relaxed text-sm font-medium flex-1">
+                <p className="relative z-10 text-slate-300 leading-relaxed text-sm font-medium flex-1 group-hover:text-white transition-colors">
                   &ldquo;{t.quote}&rdquo;
                 </p>
 
-                <div className="relative z-10 flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${t.avatarGradient} flex items-center justify-center text-white font-extrabold text-sm shrink-0`}>
+                <div className="relative z-10 flex items-center gap-3 pt-4 border-t border-white/5">
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${t.avatarGradient} flex items-center justify-center text-white font-extrabold text-sm shrink-0 shadow-lg shadow-blue-500/10`}>
                     {t.initials}
                   </div>
                   <div>
-                    <p className="text-slate-900 font-bold text-sm leading-tight">{t.author}</p>
+                    <p className="text-white font-bold text-sm leading-tight">{t.author}</p>
                     <p className="text-slate-500 text-xs font-medium">{t.role} · {t.company}</p>
                   </div>
                 </div>
@@ -231,26 +231,26 @@ export default function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 + i * 0.12 }}
               viewport={{ once: true }}
-              className="group relative bg-white border border-slate-200 rounded-[1.75rem] p-8 overflow-hidden flex flex-col gap-5 shadow-[0_8px_24px_rgba(0,0,0,0.04)] hover:border-blue-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_rgba(37,99,235,0.1)] transition-all duration-500"
+              className="group relative bg-white/[0.02] border border-white/[0.08] rounded-[1.75rem] p-8 overflow-hidden flex flex-col gap-5 shadow-[0_15px_40px_rgba(0,0,0,0.5)] hover:border-cyan-500/30 hover:-translate-y-1.5 transition-all duration-500"
             >
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-50 rounded-full blur-2xl pointer-events-none" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative z-10 flex items-center justify-between">
                 <StarRating count={t.rating} />
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Verified</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Verified</span>
               </div>
 
-              <p className="relative z-10 text-slate-700 leading-relaxed text-sm font-medium flex-1">
+              <p className="relative z-10 text-slate-300 leading-relaxed text-sm font-medium flex-1 group-hover:text-white transition-colors">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
-              <div className="relative z-10 flex items-center gap-3 pt-4 border-t border-slate-100">
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${t.avatarGradient} flex items-center justify-center text-white font-extrabold text-sm shrink-0`}>
+              <div className="relative z-10 flex items-center gap-3 pt-4 border-t border-white/5">
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${t.avatarGradient} flex items-center justify-center text-white font-extrabold text-sm shrink-0 shadow-lg shadow-blue-500/10`}>
                   {t.initials}
                 </div>
                 <div>
-                  <p className="text-slate-900 font-bold text-sm leading-tight">{t.author}</p>
+                  <p className="text-white font-bold text-sm leading-tight">{t.author}</p>
                   <p className="text-slate-500 text-xs font-medium">{t.role} · {t.company}</p>
                 </div>
               </div>
@@ -263,7 +263,7 @@ export default function TestimonialsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.36 }}
             viewport={{ once: true }}
-            className="relative bg-gradient-to-br from-slate-900 to-slate-800 rounded-[1.75rem] p-8 overflow-hidden flex flex-col justify-between shadow-[0_8px_24px_rgba(0,0,0,0.1)]"
+            className="relative bg-gradient-to-br from-blue-900/40 to-[#0a0f1c] rounded-[1.75rem] p-8 overflow-hidden flex flex-col justify-between shadow-[0_15px_40px_rgba(0,0,0,0.5)] border border-blue-500/20"
           >
             <div className="absolute -top-8 -right-8 w-40 h-40 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-8 -left-8 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -282,7 +282,7 @@ export default function TestimonialsSection() {
                   Average rating across all client engagements
                 </p>
               </div>
-              <div className="pt-5 border-t border-white/[0.08]">
+              <div className="pt-5 border-t border-white/10">
                 <p className="text-xs text-slate-500 font-semibold uppercase tracking-widest mb-0.5">Powered by</p>
                 <p className="text-white font-bold text-sm">Clicknovation Client Reviews</p>
               </div>
