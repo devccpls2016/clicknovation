@@ -51,7 +51,7 @@ export default function Footer() {
                 transition={{ duration: 0.2 }}
               >
                 <EnvelopeIcon className="w-5 h-5 mr-3 flex-shrink-0" />
-                <a href="mailto:dev.ccpls@gmail.com" className="hover:text-blue-400 transition-colors">dev.ccpls@gmail.com</a>
+                <a href="mailto:info@clicknovation.tech" className="hover:text-blue-400 transition-colors">info@clicknovation.tech</a>
               </motion.div>
             </div>
           </motion.div>

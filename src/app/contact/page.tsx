@@ -7,6 +7,7 @@ import {
   MapPinIcon, 
   ChatBubbleBottomCenterTextIcon 
 } from '@heroicons/react/24/outline';
+import { CheckCircle2 } from 'lucide-react';
 import React, { useState } from 'react';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
@@ -27,11 +28,35 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    alert('Thank you for reaching out! We will get back to you shortly.');
-    setFormState({ name: '', email: '', phone: '', company: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormState({ name: '', email: '', phone: '', company: '', message: '' });
+      } else {
+        const errorData = await response.json();
+        alert(`Error: ${errorData.error || 'Something went wrong. Please try again later.'}`);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const socialLinks = [
@@ -139,8 +164,8 @@ export default function Contact() {
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-1">Send an Email</h4>
                     <p className="text-slate-400 mb-2 text-sm">Our friendly team is here to help.</p>
-                    <a href="mailto:dev.ccpls@gmail.com" className="text-blue-400 text-lg hover:text-cyan-300 transition-colors break-all">
-                      dev.ccpls@gmail.com
+                    <a href="mailto:info@clicknovation.tech" className="text-blue-400 text-lg hover:text-cyan-300 transition-colors break-all">
+                      info@clicknovation.tech
                     </a>
                   </div>
                 </div>
@@ -204,89 +229,123 @@ export default function Contact() {
                 <ChatBubbleBottomCenterTextIcon className="w-6 h-6 text-blue-500/40" />
               </div>
               
-              <h3 className="text-2xl font-bold mb-8">Send us a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-slate-300">Full Name</label>
-                    <input 
-                      type="text" 
-                      id="name"
-                      name="name"
-                      value={formState.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-slate-300">Email Address</label>
-                    <input 
-                      type="email" 
-                      id="email"
-                      name="email"
-                      value={formState.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-slate-300">Phone Number <span className="text-slate-500 text-xs">(optional)</span></label>
-                    <input 
-                      type="tel" 
-                      id="phone"
-                      name="phone"
-                      value={formState.phone}
-                      onChange={handleChange}
-                      className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
-                      placeholder="+1 (555) 000-0000"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="company" className="text-sm font-medium text-slate-300">Company Name <span className="text-slate-500 text-xs">(optional)</span></label>
-                    <input 
-                      type="text" 
-                      id="company"
-                      name="company"
-                      value={formState.company}
-                      onChange={handleChange}
-                      className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
-                      placeholder="Your Company"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-slate-300">How can we help?</label>
-                  <textarea 
-                    id="message"
-                    name="message"
-                    value={formState.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none"
-                    placeholder="Tell us about your project or inquiry..."
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all transform hover:-translate-y-1"
+              {isSubmitted ? (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-10"
                 >
-                  Send Message
-                </button>
-                <p className="text-xs text-slate-500 text-center mt-4">
-                  By submitting this form, you agree to our privacy policy regarding data holding.
-                </p>
-              </form>
+                  <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-8 border border-green-500/30">
+                    <CheckCircle2 className="w-10 h-10 text-green-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4">Message Sent Successfully!</h3>
+                  <div className="text-slate-300 space-y-4 mb-8 text-left bg-slate-900/50 p-6 rounded-2xl border border-slate-700/50">
+                    <p>Thank you for contacting us. Our team will review your inquiry and get back to you as soon as possible.</p>
+                    <p>We appreciate your interest and look forward to assisting you.</p>
+                    <p className="pt-4 font-semibold text-white">Best Regards,<br />Team Clicknovation Technologies.</p>
+                  </div>
+                  <button 
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-blue-400 hover:text-cyan-300 font-medium transition-colors"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              ) : (
+                <>
+                  <h3 className="text-2xl font-bold mb-8">Send us a Message</h3>
+                  
+                  <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label htmlFor="name" className="text-sm font-medium text-slate-300">Full Name</label>
+                        <input 
+                          type="text" 
+                          id="name"
+                          name="name"
+                          value={formState.name}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                          placeholder="John Doe"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="email" className="text-sm font-medium text-slate-300">Email Address</label>
+                        <input 
+                          type="email" 
+                          id="email"
+                          name="email"
+                          value={formState.email}
+                          onChange={handleChange}
+                          required
+                          className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                          placeholder="john@example.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="space-y-2">
+                        <label htmlFor="phone" className="text-sm font-medium text-slate-300">Phone Number <span className="text-slate-500 text-xs">(optional)</span></label>
+                        <input 
+                          type="tel" 
+                          id="phone"
+                          name="phone"
+                          value={formState.phone}
+                          onChange={handleChange}
+                          className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                          placeholder="+1 (555) 000-0000"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label htmlFor="company" className="text-sm font-medium text-slate-300">Company Name <span className="text-slate-500 text-xs">(optional)</span></label>
+                        <input 
+                          type="text" 
+                          id="company"
+                          name="company"
+                          value={formState.company}
+                          onChange={handleChange}
+                          className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors"
+                          placeholder="Your Company"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-sm font-medium text-slate-300">How can we help?</label>
+                      <textarea 
+                        id="message"
+                        name="message"
+                        value={formState.message}
+                        onChange={handleChange}
+                        required
+                        rows={5}
+                        className="w-full bg-[#0a0f1c]/80 border border-slate-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-colors resize-none"
+                        placeholder="Tell us about your project or inquiry..."
+                      ></textarea>
+                    </div>
+
+                    <button 
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all transform hover:-translate-y-1 disabled:opacity-70 disabled:transform-none disabled:cursor-not-allowed"
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center gap-2">
+                          <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+                          Sending...
+                        </span>
+                      ) : (
+                        'Send Message'
+                      )}
+                    </button>
+                    <p className="text-xs text-slate-500 text-center mt-4">
+                      By submitting this form, you agree to our privacy policy regarding data holding.
+                    </p>
+                  </form>
+                </>
+              )}
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { RocketLaunchIcon, CalendarDaysIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 export default function FinalCTASection() {
@@ -49,26 +50,30 @@ export default function FinalCTASection() {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               {/* Primary CTA */}
-              <motion.button 
-                whileHover={{ scale: 1.05, translateY: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative px-10 py-5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_25px_50px_rgba(34,211,238,0.4)] transition-all flex items-center gap-3 overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                <RocketLaunchIcon className="w-6 h-6 stroke-[2]" />
-                Contact Us Now
-                <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              <Link href="/contact">
+                <motion.button 
+                  whileHover={{ scale: 1.05, translateY: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative px-10 py-5 rounded-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-lg shadow-[0_20px_40px_rgba(37,99,235,0.3)] hover:shadow-[0_25px_50px_rgba(34,211,238,0.4)] transition-all flex items-center gap-3 overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <RocketLaunchIcon className="w-6 h-6 stroke-[2]" />
+                  Contact Us Now
+                  <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </motion.button>
+              </Link>
 
               {/* Secondary CTA */}
-              <motion.button 
-                whileHover={{ scale: 1.05, translateY: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group px-10 py-5 rounded-full bg-white/[0.05] border border-white/10 text-white font-bold text-lg hover:bg-white/[0.08] hover:border-white/20 transition-all flex items-center gap-3"
-              >
-                <CalendarDaysIcon className="w-6 h-6 text-cyan-400" />
-                Free Consultation
-              </motion.button>
+              <Link href="/contact">
+                <motion.button 
+                  whileHover={{ scale: 1.05, translateY: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group px-10 py-5 rounded-full bg-white/[0.05] border border-white/10 text-white font-bold text-lg hover:bg-white/[0.08] hover:border-white/20 transition-all flex items-center gap-3"
+                >
+                  <CalendarDaysIcon className="w-6 h-6 text-cyan-400" />
+                  Free Consultation
+                </motion.button>
+              </Link>
             </div>
 
             {/* Trust Hint */}
