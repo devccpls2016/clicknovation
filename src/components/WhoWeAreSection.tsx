@@ -5,14 +5,10 @@ import { motion } from 'framer-motion';
 export default function WhoWeAreSection() {
   return (
     <section className="relative overflow-hidden py-24 px-4 sm:px-6 lg:px-8 bg-[#0a0f1c]">
-      {/* Hexagonal mesh background pattern */}
-      <div 
-        className="absolute inset-0 z-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='103.92' viewBox='0 0 60 103.92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 17.32v34.64L30 69.28 0 51.96V17.32z' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M30 103.92l30-17.32V51.96L30 69.28 0 51.96v34.64z' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E")`,
-          backgroundSize: '60px 103.92px'
-        }}
-      ></div>
+      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.24),transparent_30%),radial-gradient(circle_at_85%_20%,rgba(14,165,233,0.16),transparent_24%),radial-gradient(circle_at_bottom_right,rgba(37,99,235,0.18),transparent_28%)]" />
+      <div className="absolute inset-0 z-0 opacity-[0.14] [background-image:linear-gradient(rgba(148,163,184,0.24)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.24)_1px,transparent_1px)] [background-size:84px_84px]" />
+      <div className="absolute left-1/2 top-14 z-0 h-[26rem] w-[26rem] -translate-x-1/2 rounded-full border border-sky-400/10 bg-sky-500/8 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 z-0 h-48 bg-[linear-gradient(180deg,rgba(37,99,235,0.18),transparent)]" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 items-center">

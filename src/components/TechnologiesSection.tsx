@@ -127,18 +127,18 @@ export default function TechnologiesSection() {
           <div className="relative z-10 p-10 sm:p-14 lg:p-16">
 
             {/* Header */}
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <div className="text-center max-w-4xl mx-auto mb-16">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-slate-950/70 border border-white/10 text-slate-100 text-xs sm:text-sm font-semibold uppercase tracking-[0.28em] mb-6 shadow-[0_12px_30px_rgba(2,6,23,0.35)]">
+                <span className="w-6 h-px rounded-full bg-cyan-400/90" />
                 Our Philosophy
               </div>
-              <h3 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight mb-5">
-                Technology Stack{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 text-transparent bg-clip-text drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]">
+              <h3 className="text-3xl sm:text-4xl lg:text-[3.35rem] font-semibold sm:font-bold text-white tracking-tight leading-[1.08] mb-5">
+                <span className="block">Technology Stack</span>
+                <span className="block mt-2 text-cyan-100">
                   Built with Intention
                 </span>
               </h3>
-              <p className="text-lg text-slate-400 leading-relaxed">
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto">
                 We don&apos;t follow hype — we carefully evaluate and select technologies that align with your operational goals, ensuring every layer of the stack serves a purpose.
               </p>
             </div>

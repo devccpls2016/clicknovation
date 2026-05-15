@@ -1,190 +1,215 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  ComputerDesktopIcon, 
-  GlobeAltIcon, 
-  CloudIcon, 
-  PresentationChartLineIcon, 
-  VideoCameraIcon, 
-  LightBulbIcon, 
-  CogIcon, 
-  LinkIcon, 
+import {
+  CloudIcon,
+  ComputerDesktopIcon,
+  GlobeAltIcon,
+  LightBulbIcon,
+  LinkIcon,
+  PresentationChartLineIcon,
+  VideoCameraIcon,
   WrenchScrewdriverIcon,
-  CpuChipIcon,
-  RocketLaunchIcon,
-  CheckBadgeIcon
 } from '@heroicons/react/24/outline';
 
 const services = [
   {
     title: 'Web & App Development',
-    description: 'We design and develop responsive websites and powerful mobile applications that are fast, user-friendly, and built to meet your business needs.',
+    description: 'Responsive websites, custom platforms, and mobile experiences designed for performance and growth.',
     icon: ComputerDesktopIcon,
+    tag: 'Build',
   },
   {
     title: 'Network Infrastructure',
-    description: 'We plan, set up, and manage secure and reliable network systems that ensure smooth connectivity and strong performance for your organization.',
+    description: 'Secure and reliable network environments that support uninterrupted connectivity and business operations.',
     icon: GlobeAltIcon,
+    tag: 'Systems',
   },
   {
     title: 'Cloud Services',
-    description: 'We help you move, manage, and scale your business on the cloud with secure and flexible solutions that improve efficiency and reduce costs.',
+    description: 'Flexible cloud solutions that improve efficiency, strengthen security, and make scaling easier.',
     icon: CloudIcon,
+    tag: 'Cloud',
   },
   {
     title: 'Digital Marketing',
-    description: 'We create effective digital marketing strategies to increase your online presence, attract customers, and grow your brand.',
+    description: 'Targeted campaigns and digital strategies that grow visibility, engagement, and demand.',
     icon: PresentationChartLineIcon,
+    tag: 'Growth',
   },
   {
-    title: 'CCTV & Security Solutions',
-    description: 'We provide advanced surveillance and security systems to protect your business, assets, and people with reliable monitoring solutions.',
+    title: 'CCTV & Security',
+    description: 'Advanced monitoring and protection systems built to safeguard people, assets, and facilities.',
     icon: VideoCameraIcon,
+    tag: 'Security',
   },
   {
     title: 'Business Consultancy',
-    description: 'We guide businesses with the right strategies and technology solutions to improve operations, increase productivity, and achieve long-term growth.',
+    description: 'Practical guidance that helps businesses improve operations, productivity, and long-term direction.',
     icon: LightBulbIcon,
-  },
-  {
-    title: 'Custom Software Solutions',
-    description: 'We build customized software tailored to your specific business processes, helping you automate tasks and improve efficiency.',
-    icon: CogIcon,
+    tag: 'Strategy',
   },
   {
     title: 'System Integration',
-    description: 'We connect different systems and technologies to work together smoothly, ensuring better performance and streamlined operations.',
+    description: 'Connected workflows that help different platforms and technologies operate as one reliable system.',
     icon: LinkIcon,
+    tag: 'Integration',
   },
   {
     title: 'Support & Maintenance',
-    description: 'We provide ongoing support and maintenance services to keep your systems updated, secure, and running without interruptions.',
+    description: 'Ongoing technical support to keep your systems updated, secure, and performing consistently.',
     icon: WrenchScrewdriverIcon,
+    tag: 'Support',
   },
+];
+
+const highlights = [
+  'Tailored digital solutions',
+  'Scalable technical foundations',
+  'Reliable delivery and support',
 ];
 
 export default function WhatWeOfferSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0f1c] text-white py-32 px-4 sm:px-6 lg:px-8 border-y border-slate-800/50">
-      {/* Dark Theme Dynamic Ambient Focus */}
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.1)_0%,_transparent_70%)] pointer-events-none"></div>
+    <section className="relative overflow-hidden border-y border-slate-800/50 bg-[#0a0f1c] px-4 py-28 text-white sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.12),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.08),transparent_28%)]" />
 
-      <div className="relative max-w-7xl mx-auto z-10">
-        
-        {/* Dark Theme Header Block */}
+      <div className="relative mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-24"
+          className="mb-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end"
         >
-          <div className="inline-block px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold rounded-full shadow-lg mb-8 text-sm uppercase tracking-wider backdrop-blur-md">
-            What We Offer
-          </div>
-          
-          <div className="flex flex-col leading-[1.1] sm:leading-[1.1] tracking-tight justify-center items-center text-center mb-8">
-            <span className="text-4xl sm:text-5xl lg:text-6xl font-sans font-extrabold text-white">
-              Complete Technology
-            </span>
-            <div className="text-4xl sm:text-5xl lg:text-6xl font-sans font-extrabold mt-1 sm:mt-2">
-              <span className="text-white">Solutions to </span>
-              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 text-transparent bg-clip-text pb-2 inline-block drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
-                Power Your Business.
+          <div>
+            <div className="inline-flex items-center rounded-full border border-sky-400/20 bg-sky-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-sky-300">
+              What We Offer
+            </div>
+
+            <h2 className="mt-6 max-w-4xl text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+              <span className="text-white">Technology services designed to move your business </span>
+              <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+                forward with clarity and confidence.
               </span>
+            </h2>
+
+            <p className="mt-6 max-w-3xl text-base leading-8 text-slate-300 sm:text-lg">
+              We combine strategy, engineering, infrastructure, and support to help organizations build stronger systems,
+              improve efficiency, and grow with modern technology.
+            </p>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 backdrop-blur-sm shadow-[0_22px_50px_-38px_rgba(2,6,23,0.92)]">
+            <div className="flex items-center justify-between gap-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300/78">
+                Focus Areas
+              </p>
+              <div className="h-px flex-1 bg-gradient-to-r from-white/0 via-cyan-300/30 to-white/0" />
+            </div>
+            <div className="mt-5 grid gap-3">
+              {highlights.map((highlight, index) => (
+                <div
+                  key={highlight}
+                  className="rounded-2xl border border-white/10 bg-slate-950/35 px-4 py-4"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-400/10 text-sm font-semibold text-cyan-200">
+                      0{index + 1}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-white">{highlight}</p>
+                      <p className="mt-1 text-xs leading-6 text-slate-400">
+                        Built to support stable, practical, and growth-ready delivery.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-          <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-            We provide a wide range of services designed to help your business grow, improve efficiency, and stay competitive in the digital world.
-          </p>
         </motion.div>
 
-        {/* Professional Dark-Mode Service Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, delay: index * 0.06 }}
               viewport={{ once: true }}
-              className="relative group bg-white/[0.02] border border-white/[0.08] p-8 sm:p-10 rounded-[2rem] shadow-[0_15px_40px_rgba(0,0,0,0.5)] transition-all duration-500 hover:border-cyan-500/30 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(34,211,238,0.15)] flex flex-col overflow-hidden"
+              className="group flex h-full flex-col rounded-[2rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-6 shadow-[0_24px_60px_-42px_rgba(2,6,23,0.95)] transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan-300/30 hover:bg-[linear-gradient(180deg,rgba(14,165,233,0.08),rgba(255,255,255,0.04))]"
             >
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-blue-500/[0.05] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-              
-              <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-[1.25rem] bg-white/[0.05] border border-white/10 text-cyan-400 group-hover:scale-110 group-hover:text-cyan-200 transition-all duration-500 shadow-[inset_0_0_15px_rgba(59,130,246,0.1)]">
-                  <service.icon className="w-8 h-8 stroke-[1.5] drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/40 text-cyan-300 shadow-[inset_0_0_18px_rgba(56,189,248,0.08)] transition-transform duration-300 group-hover:scale-105">
+                  <service.icon className="h-7 w-7 stroke-[1.6]" />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-3 transition-colors duration-300 group-hover:text-cyan-400">
-                    {service.title}
-                  </h3>
-                  <p className="text-slate-400 leading-relaxed text-base font-medium">
-                    {service.description}
-                  </p>
-                </div>
+                <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-cyan-200/82">
+                  {service.tag}
+                </span>
+              </div>
+
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold leading-7 text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">
+                  {service.description}
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Unique Dark-Theme Bento "Our Approach" Structure */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="mt-28 relative rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] p-8 sm:p-12 lg:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.6)] overflow-hidden backdrop-blur-3xl"
+          className="mt-16 rounded-[2.25rem] border border-white/10 bg-[linear-gradient(135deg,rgba(14,165,233,0.08),rgba(255,255,255,0.04))] p-8 shadow-[0_30px_80px_-50px_rgba(2,6,23,0.95)] sm:p-10"
         >
-          {/* Subtle Ambient Glows */}
-          <div className="absolute top-0 right-0 p-40 bg-blue-600/10 filter blur-[100px] rounded-full pointer-events-none"></div>
-          <div className="absolute bottom-0 left-0 p-40 bg-cyan-500/10 filter blur-[100px] rounded-full pointer-events-none"></div>
-
-          <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
-              <h3 className="text-4xl sm:text-5xl font-extrabold text-white mb-6 tracking-tight">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_20px_rgba(34,211,238,0.3)]">Approach</span>
-              </h3>
-              <p className="text-xl sm:text-2xl text-slate-400 leading-relaxed font-semibold">
-                We combine core pillars to deliver holistic, effective, and future-ready solutions perfectly tailored for you.
+          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-center">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-300/82">
+                How We Deliver
               </p>
-          </div>
+              <h3 className="mt-4 text-3xl font-semibold sm:text-4xl">
+                <span className="text-white">Professional execution from planning </span>
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent">
+                  to long-term support.
+                </span>
+              </h3>
+              <p className="mt-4 max-w-3xl text-base leading-8 text-slate-300">
+                Every service is backed by structured delivery, reliable communication, and a focus on results that stay useful as your business evolves.
+              </p>
+            </div>
 
-          {/* Staggered Horizontal Bento */}
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 relative z-10">
-              {/* Card 1 */}
-              <div className="bg-white/[0.03] border border-white/[0.07] p-8 rounded-3xl hover:bg-white/[0.05] transition-all hover:-translate-y-2 flex flex-col items-start relative overflow-hidden group shadow-sm hover:border-cyan-500/30">
-                <div className="p-3 bg-white/[0.05] border border-white/10 rounded-2xl mb-6 text-cyan-400 shadow-sm group-hover:scale-110 group-hover:text-cyan-200 transition-all">
-                  <CpuChipIcon className="w-8 h-8" />
+            <div className="grid gap-4">
+              {[
+                { step: '01', title: 'Strategy', text: 'We define direction, priorities, and the right solution path.' },
+                { step: '02', title: 'Build', text: 'We execute with clear milestones, quality checks, and alignment.' },
+                { step: '03', title: 'Operate', text: 'We support, improve, and keep systems reliable over time.' },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-white/10 bg-slate-950/35 p-4"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-blue-400/20 bg-blue-500/10 text-xs font-semibold text-cyan-200">
+                      {item.step}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-semibold uppercase tracking-[0.16em] text-white">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-xl font-bold text-white mb-3">Modern Technology</h4>
-                <p className="text-slate-400 leading-relaxed text-sm">
-                   Implementing scalable, fast, and highly secure technical foundations for every project.
-                </p>
-              </div>
-
-              {/* Card 2 (Elevated) */}
-              <div className="bg-white/[0.03] border border-white/[0.07] p-8 rounded-3xl hover:bg-white/[0.05] transition-all hover:-translate-y-2 flex flex-col items-start relative overflow-hidden group shadow-sm hover:border-blue-500/30 md:-translate-y-4">
-                <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-2xl mb-6 text-blue-400 shadow-sm group-hover:scale-110 group-hover:text-blue-200 transition-all">
-                  <RocketLaunchIcon className="w-8 h-8" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-3">Driven Innovation</h4>
-                <p className="text-slate-400 leading-relaxed text-sm">
-                   Pushing boundaries to craft unique, engaging, and state-of-the-art user experiences.
-                </p>
-              </div>
-
-              {/* Card 3 */}
-              <div className="bg-white/[0.03] border border-white/[0.07] p-8 rounded-3xl hover:bg-white/[0.05] transition-all hover:-translate-y-2 flex flex-col items-start relative overflow-hidden group shadow-sm hover:border-cyan-500/30">
-                <div className="p-3 bg-white/[0.05] border border-white/10 rounded-2xl mb-6 text-cyan-400 shadow-sm group-hover:scale-110 group-hover:text-cyan-200 transition-all">
-                  <CheckBadgeIcon className="w-8 h-8" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-3">Practical Application</h4>
-                <p className="text-slate-400 leading-relaxed text-sm">
-                   Ensuring our high-end methods translate accurately into real-world business results.
-                </p>
-              </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
